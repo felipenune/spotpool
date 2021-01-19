@@ -1,5 +1,8 @@
-# SpotPool
+<h1 align="center">
+  <img src="./src/assets/SpotPool.svg" alt="SpotPool" width="40%" />
+</h1>
 
+## Table of Contents
 * [About the project](#about)
 * [Steps for testing](#steps-to-run-this-project)
 * [.ENV example](#example-of-.env)
