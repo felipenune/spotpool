@@ -10,7 +10,7 @@ export const SelectStyled = styled.select`
   font-size: 2rem;
   font-weight: bold;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
   }
 

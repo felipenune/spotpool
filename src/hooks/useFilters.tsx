@@ -20,8 +20,8 @@ interface IFilterValues {
     {
       value: string;
       name: string;
-    }
-  ]
+    },
+  ];
 }
 
 interface IFilterData {
@@ -50,13 +50,14 @@ export const FiltersProvider: React.FC<IContext> = ({ children }: IContext) => {
 
   const getFilters = useCallback(async () => {
     try {
-      const response = await filtersApi.get('/') as IResponse;
+      const response = (await filtersApi.get('/')) as IResponse;
 
       const newFilters = response.data.filters;
 
       setFilters(newFilters);
     } catch (error) {
-      console.log(error);
+      // eslint-disable-next-line no-console
+      console.error(error);
     }
   }, []);
 

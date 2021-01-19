@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useCallback, useEffect, useState } from 'react';
 import { FaArrowUp, FaSearch } from 'react-icons/fa';
 import { toast } from 'react-toastify';
@@ -34,7 +35,7 @@ interface IPlaylist {
   images: [
     {
       url: string;
-    }
+    },
   ];
   name: string;
   owner: {
@@ -53,7 +54,7 @@ interface IPlaylist {
     total: number;
   };
   type: string;
-  uri: string
+  uri: string;
 }
 
 interface IResponse {
@@ -61,8 +62,8 @@ interface IResponse {
     message: string;
     playlists: {
       items: IPlaylist[];
-    }
-  }
+    };
+  };
 }
 
 const Home: React.FC = () => {
@@ -100,13 +101,14 @@ const Home: React.FC = () => {
   }
 
   function handleSelectedFilter(key: string, value: string) {
+    let newValue;
     switch (key.toLowerCase()) {
       case 'locale':
         setLocale(value);
         break;
       case 'país':
-        value = value === 'en_US' ? 'US' : value;
-        setCountry(value);
+        newValue = value === 'en_US' ? 'US' : value;
+        setCountry(newValue);
         break;
       case 'limit':
         setLimit(Number(value));
@@ -142,18 +144,18 @@ const Home: React.FC = () => {
     try {
       setLoading(true);
 
-      const playlistsResponse = await api.get('/', {
+      const playlistsResponse = (await api.get('/', {
         params: {
           country: country || null,
           locale: locale || null,
           limit: limit > 0 ? limit : null,
         },
-      }) as IResponse;
+      })) as IResponse;
 
       const newPlaylists = name
-        ? playlistsResponse.data.playlists.items.filter(
-          (e) => e.name.toUpperCase().includes(name.toUpperCase()),
-        )
+        ? playlistsResponse.data.playlists.items.filter(e =>
+            e.name.toUpperCase().includes(name.toUpperCase()),
+          )
         : playlistsResponse.data.playlists.items;
 
       setPlaylists(newPlaylists);
@@ -193,7 +195,7 @@ const Home: React.FC = () => {
             <Input
               placeholder="Search Playlist"
               value={name}
-              onChange={(e) => handleSearch(e.target.value)}
+              onChange={e => handleSearch(e.target.value)}
             />
 
             <SearchIconDiv>
@@ -203,16 +205,21 @@ const Home: React.FC = () => {
         </SearchContainer>
 
         <FiltersContainer>
-          {filters.map((filter) => filter.values && (
-            <Select
-              key={filter.id}
-              id={filter.id}
-              options={filter.values}
-              defaultValue=""
-              value={handleSelectValue(filter.name)}
-              onChange={(e) => handleSelectedFilter(filter.name, e.target.value)}
-            />
-          ))}
+          {filters.map(
+            filter =>
+              filter.values && (
+                <Select
+                  key={filter.id}
+                  id={filter.id}
+                  options={filter.values}
+                  defaultValue=""
+                  value={handleSelectValue(filter.name)}
+                  onChange={e =>
+                    handleSelectedFilter(filter.name, e.target.value)
+                  }
+                />
+              ),
+          )}
 
           <Select
             id="Number of playlists"
@@ -225,10 +232,12 @@ const Home: React.FC = () => {
             ]}
             defaultValue=""
             value={limit === 0 ? '' : limit.toString()}
-            onChange={(e) => handleSelectedFilter('Limit', e.target.value)}
+            onChange={e => handleSelectedFilter('Limit', e.target.value)}
           />
 
-          <ClearFiltersButton onClick={clearFilters}>Clear filters</ClearFiltersButton>
+          <ClearFiltersButton onClick={clearFilters}>
+            Clear filters
+          </ClearFiltersButton>
         </FiltersContainer>
       </Header>
 
@@ -247,7 +256,7 @@ const Home: React.FC = () => {
       ) : (
         <PlaylistContainer className={!playlists.length ? 'empty' : ''}>
           {playlists.length ? (
-            playlists.map((playlist) => (
+            playlists.map(playlist => (
               <PlaylistItem
                 key={playlist.id}
                 title={playlist.name}

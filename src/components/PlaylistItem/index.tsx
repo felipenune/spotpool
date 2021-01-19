@@ -1,7 +1,12 @@
 import React, { AnchorHTMLAttributes } from 'react';
 import { FaMusic } from 'react-icons/fa';
 import {
-  Container, InfoContainer, PosterBackground, Tracks, TrackDiv, Title,
+  Container,
+  InfoContainer,
+  PosterBackground,
+  Tracks,
+  TrackDiv,
+  Title,
 } from './styles';
 
 interface Props extends AnchorHTMLAttributes<HTMLAnchorElement> {
@@ -18,12 +23,7 @@ const PlaylistItem: React.FC<Props> = ({
   poster,
   ...rest
 }: Props) => (
-  <Container
-    {...rest}
-    href={url}
-    target="_blank"
-    rel="noopener noreferrer"
-  >
+  <Container {...rest} href={url} target="_blank" rel="noopener noreferrer">
     <PosterBackground style={{ backgroundImage: `url(${poster})` }} />
 
     <InfoContainer>
@@ -34,7 +34,6 @@ const PlaylistItem: React.FC<Props> = ({
 
         <Tracks>
           {rate}
-          {' '}
           tracks
         </Tracks>
       </TrackDiv>

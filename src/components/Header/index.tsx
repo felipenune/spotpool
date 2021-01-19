@@ -1,20 +1,14 @@
-import React, { ReactNode } from 'react';
+import React, { PropsWithChildren, ReactNode } from 'react';
 
 import logo from '../../assets/SpotPool.svg';
 
-import {
-  Container,
-  HeaderLogo,
-  HeaderTitleDiv,
-} from './styles';
+import { Container, HeaderLogo, HeaderTitleDiv } from './styles';
 
 interface IProps {
   children?: ReactNode;
 }
 
-const Header: React.FC<IProps> = ({
-  children,
-}) => (
+const Header: React.FC<IProps> = ({ children }: PropsWithChildren<IProps>) => (
   <Container>
     <HeaderTitleDiv>
       <HeaderLogo src={logo} />

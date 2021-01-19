@@ -10,7 +10,7 @@ export const WarningContainer = styled.div`
 `;
 
 export const WarningText = styled.p`
-  font-family: "Poppins";
-  color: #FFF;
+  font-family: 'Poppins';
+  color: #fff;
   font-size: 2rem;
 `;

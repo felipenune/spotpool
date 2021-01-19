@@ -16,15 +16,15 @@ const Select: React.FC<ISelectProps> = ({
   options,
   ...rest
 }: PropsWithChildren<ISelectProps>) => (
-  <SelectStyled
-    id={id}
-    defaultValue=""
-    {...rest}
-  >
-    <option value="" disabled hidden>{id}</option>
+  <SelectStyled id={id} defaultValue="" {...rest}>
+    <option value="" disabled hidden>
+      {id}
+    </option>
 
-    {options.map((value) => (
-      <option key={value.value} value={value.value}>{value.name}</option>
+    {options.map(value => (
+      <option key={value.value} value={value.value}>
+        {value.name}
+      </option>
     ))}
   </SelectStyled>
 );

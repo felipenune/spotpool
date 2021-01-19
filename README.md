@@ -8,7 +8,7 @@
 * [.ENV example](#example-of-.env)
 
 ## About
-This project is a integration of bling platform with pipedrive platform, created for the LinkApi thecnical challenge. Build with NodeJS, Typescript, TypeOrm and mongoDB, you can get the deals with status "won" on pipedrive e create a order on bling, save the order on database.
+A web application used to display the preferred playlists from customers
 
 ## Steps to run this project
 

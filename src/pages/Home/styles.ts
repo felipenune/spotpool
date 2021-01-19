@@ -21,7 +21,7 @@ export const InputDiv = styled.div`
   align-items: center;
   width: 100%;
   height: 70%;
-  background: #FFF;
+  background: #fff;
   border: 2px solid #2ba690;
   border-radius: 1rem;
 
@@ -119,16 +119,16 @@ export const ClearFiltersButton = styled.button`
   border-radius: 1rem;
   padding: 5px;
   background: #000;
-  color: #FFF;
+  color: #fff;
   font-size: 2rem;
   font-weight: bold;
   transition: all 0.3s;
 
-  &:hover{
+  &:hover {
     cursor: pointer;
     color: #2ba690;
     border: 1px solid #2ba690;
-    background: #FFF;
+    background: #fff;
   }
 
   @media (max-width: 540px) {
